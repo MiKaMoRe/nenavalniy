@@ -35,6 +35,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+/confige/database.yml
 /public/packs
 /public/packs-test
 /node_modules
