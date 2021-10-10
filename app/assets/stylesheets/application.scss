@@ -10,6 +10,43 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+  max-width: 100%;
  *= require_tree .
  *= require_self
  */
+
+*{
+  outline: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: Ubuntu;
+}
+
+.parent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper{
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  padding: 0 40px;
+  max-width: 1700px;
+}
+
+html, body{
+  height: 100%;
+  min-height: 100%;
+  
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

@@ -1,0 +1,102 @@
+@import 'colors';
+
+header{
+  & .top{
+    background-color: $secondaryColor;
+
+    & *{
+      color: #fff;
+    }
+
+    & .navigation{
+      a:not(:last-child){
+        padding-right: 20px;
+      }
+    }
+
+    & .wrapper > div{
+      display: flex;
+    }
+
+    & .wrapper{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 7px;
+      padding-bottom: 7px;
+    }
+  }
+
+  & .bottom{
+    display: flex;
+    background-color: $mainColor;
+
+    & *{
+      color: #000;
+    }
+
+    & a{
+      display: flex;
+    }
+
+    & .links{
+      min-width: 370px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 40%;
+    }
+
+    & .taskbar{
+      
+      min-width: 670px;
+      padding-left: 30px;
+      width: 60%;
+      display: flex;
+      justify-content: space-between;
+      
+
+      & > *:not(:last-child){
+        margin-right: 10px;
+      }
+
+      & input{
+        width: 50%;
+        border: none;
+        background-color: $thirdColor;
+        padding: 0 10px;
+        border-radius: 30px;
+      }
+
+      & button{
+        width: 36px;
+        height: 36px;
+        border: none;
+        background-color: $thirdColor;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & img{
+          width: 60%;
+          height: 60%;
+        }
+      }
+    }
+
+    & .wrapper{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+  }
+
+  & .bottom, & .top{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
