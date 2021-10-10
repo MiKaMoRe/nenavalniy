@@ -2,4 +2,17 @@
 
 footer{
   background-color: $mainColor;
+
+  & .wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  & div{
+    display: flex;
+    flex-direction: column;
+  }
 }
