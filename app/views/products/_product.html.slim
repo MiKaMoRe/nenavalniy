@@ -1,5 +1,15 @@
 .product
-  = product.article
-  = product.name
-  = product.price
-  = product.amount
+  .product__wrapper 
+    .product__top 
+      - if product.amount > 0
+        .instock В наличии
+      - else 
+        .stockout Нет в наличии
+    .product__image 
+      = image_tag('icons/drone2.svg')
+    .product__description
+      h3= product.name
+      h4= "#{product.price} шекелей"
+      p= "В наличии: #{product.amount}"
+    .product__buybutton
+      = link_to 'Купить'

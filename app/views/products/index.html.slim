@@ -1,2 +1,20 @@
-.products
-  = render @products
+.products.parent
+  .wrapper
+    .products__vertical-nav.vertical-nav
+      .vertical-nav__wrapper
+        .vertical-nav__elem.vertical-nav__elem_title Продукция
+        .vertical-nav__elem
+          = image_tag('icons/drone2.svg')
+          = link_to 'Mavic'
+        .vertical-nav__elem
+          = image_tag('icons/drone4.svg')
+          = link_to 'Phantom'
+    .products__filter
+    .products__sorting
+      = image_tag('icons/sort.svg')
+      = link_to 'сначала популярные'
+      = link_to 'сначала дешевые'
+      = link_to 'сначала дрогие'
+    .products__list
+      .products__list_grid
+        = render @products

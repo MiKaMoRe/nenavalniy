@@ -1,0 +1,63 @@
+@import '../shared/colors';
+
+.product{
+  &__wrapper{
+    background-color: $mainColor;
+    border: 1px solid $thirdColor;
+  }
+
+  &__top{
+    padding: 7px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__image{
+    img{
+      width: 100%;
+    }
+  }
+
+  &__description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+  }
+
+  &__buybutton{
+    padding: 5px;
+
+    a{
+      cursor: pointer;
+      font-size: 22px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $noticeColor;
+      border: 2px solid $noticeColor;
+      height: 30px;
+    }
+  }
+}
+
+.instock{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $successfulGreen;
+  border: 2px solid $successfulGreen;
+  width: 100px;
+  height: 30px;
+}
+
+.stockout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $failureRed;
+  border: 2px solid $failureRed;
+  width: 130px;
+  height: 30px;
+}
