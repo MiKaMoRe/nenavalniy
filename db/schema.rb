@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 2021_10_02_154129) do
     t.integer "price"
     t.string "status"
     t.integer "author_id", null: false
-    t.integer "products_id", null: false
+    t.integer "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_orders_on_author_id"
-    t.index ["products_id"], name: "index_orders_on_products_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
   end
 
   create_table "orders_products", id: false, force: :cascade do |t|
@@ -52,6 +52,6 @@ ActiveRecord::Schema.define(version: 2021_10_02_154129) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orders", "products"
   add_foreign_key "orders", "users", column: "author_id"
-  add_foreign_key "orders", "users", column: "products_id"
 end
