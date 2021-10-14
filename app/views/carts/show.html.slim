@@ -1,0 +1,6 @@
+.cart.parent
+  .wrapper
+    h1 Корзина
+    .cart__products
+      - if @products.any?
+        = render partial: 'carts/product', collection: @products

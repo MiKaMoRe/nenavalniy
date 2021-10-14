@@ -48,7 +48,6 @@ header{
     }
 
     & .taskbar{
-      
       min-width: 670px;
       padding-left: 30px;
       width: 60%;
@@ -68,7 +67,7 @@ header{
         border-radius: 30px;
       }
 
-      & button{
+      & a.icons{
         width: 36px;
         height: 36px;
         border: none;

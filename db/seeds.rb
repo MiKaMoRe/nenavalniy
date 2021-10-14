@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+admin = User.create!(email: 'kim.roman-2002@yandex.ru', password: 'simplepass', password_confirmation: 'simplepass')
+cart = Cart.create!(status: 'active', user: admin)
+admin.carts.append
+
 products = Product.create!([
   {
     article: 'AA-31',

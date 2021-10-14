@@ -29,6 +29,9 @@ header.parent
           p 8 800 555 35 35
           a href="#" Заказать звонок
         input
-        button= image_tag 'icons/search'
-        button= image_tag 'icons/favorite'
-        button= image_tag 'icons/cart'
+        = link_to image_tag('icons/search'), '#', class: 'icons'
+        = link_to image_tag('icons/favorite'), '#', class: 'icons'
+        - if current_user 
+          = link_to image_tag('icons/cart'), cart_path(current_user.carts.active.id), class: 'icons' 
+        - else 
+          = link_to image_tag('icons/cart'), '#', class: 'icons' 

@@ -12,4 +12,5 @@
       h4= "#{product.price} шекелей"
       p= "В наличии: #{product.amount}"
     .product__buybutton
-      = link_to 'В корзину'
+      - if product.amount > 0
+        = link_to 'В корзину'

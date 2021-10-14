@@ -12,22 +12,20 @@
 
 ActiveRecord::Schema.define(version: 2021_10_02_154129) do
 
-  create_table "orders", force: :cascade do |t|
-    t.integer "price"
+  create_table "carts", force: :cascade do |t|
     t.string "status"
-    t.integer "author_id", null: false
-    t.integer "product_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["author_id"], name: "index_orders_on_author_id"
-    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.index "\"user_id\", \"cart_id\"", name: "index_carts_on_user_id_and_cart_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
-  create_table "orders_products", id: false, force: :cascade do |t|
-    t.integer "order_id", null: false
+  create_table "carts_products", id: false, force: :cascade do |t|
+    t.integer "cart_id", null: false
     t.integer "product_id", null: false
     t.integer "amount", default: 0, null: false
-    t.index ["order_id", "product_id"], name: "index_orders_products_on_order_id_and_product_id"
+    t.index ["cart_id", "product_id"], name: "index_carts_products_on_cart_id_and_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -52,6 +50,5 @@ ActiveRecord::Schema.define(version: 2021_10_02_154129) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "orders", "products"
-  add_foreign_key "orders", "users", column: "author_id"
+  add_foreign_key "carts", "users"
 end
