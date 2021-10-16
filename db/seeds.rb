@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 admin = User.create!(email: 'admin@didlogic.com', password: 'simplepass', password_confirmation: 'simplepass')
-cart = Cart.create!(status: 'active', user: admin)
+cart = Cart.create!(is_active: true, is_order: true, user: admin)
 admin.carts.append
 
 products = Product.create!([
