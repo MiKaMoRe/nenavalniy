@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :carts, dependent: :destroy
+
+  def add_product(product)
+    current_cart.products.append(product)
+  end
 end

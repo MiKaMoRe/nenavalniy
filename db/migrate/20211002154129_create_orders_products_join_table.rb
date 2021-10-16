@@ -1,8 +1,9 @@
 class CreateOrdersProductsJoinTable < ActiveRecord::Migration[6.1]
   def change
-    create_join_table :carts, :products do |t|
+    create_table :carts_products do |t|
+      t.integer :cart_id, null: false
+      t.integer :product_id, null: false
       t.index [:cart_id, :product_id]
-      t.integer :amount, null: false, default: 0
     end
   end
 end

@@ -30,8 +30,5 @@ header.parent
           a href="#" Заказать звонок
         input
         = link_to image_tag('icons/search'), '#', class: 'icons'
-        = link_to image_tag('icons/favorite'), '#', class: 'icons'
-        - if current_user 
-          = link_to image_tag('icons/cart'), cart_path(current_user.carts.active.id), class: 'icons' 
-        - else 
-          = link_to image_tag('icons/cart'), '#', class: 'icons' 
+        = link_to image_tag('icons/favorite'), '#', class: 'icons' 
+        = link_to image_tag('icons/cart'), cart_path(current_cart), class: 'icons' 

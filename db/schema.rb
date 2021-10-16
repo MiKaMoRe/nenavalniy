@@ -21,10 +21,9 @@ ActiveRecord::Schema.define(version: 2021_10_02_154129) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
-  create_table "carts_products", id: false, force: :cascade do |t|
+  create_table "carts_products", force: :cascade do |t|
     t.integer "cart_id", null: false
     t.integer "product_id", null: false
-    t.integer "amount", default: 0, null: false
     t.index ["cart_id", "product_id"], name: "index_carts_products_on_cart_id_and_product_id"
   end
 

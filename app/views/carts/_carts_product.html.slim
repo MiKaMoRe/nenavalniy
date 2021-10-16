@@ -1,0 +1,15 @@
+.cart__product.product
+  .product__leftside
+    = image_tag('icons/drone4.svg')
+    div 
+      h2= carts_product[:product].name
+      h3= carts_product[:product].article
+  .product__rightside
+    div 
+      = carts_product[:product].price
+      p За штуку
+    = link_to '-', one_less_product_cart_path(current_cart, product: carts_product[:product]), class: 'btn', method: :delete
+    span#carts-amount class="input" role="textbox" = carts_product[:count]
+    = link_to '+', one_more_product_cart_path(current_cart, product: carts_product[:product]), class: 'btn', method: :post
+    = carts_product[:product].price * carts_product[:count] 
+    / = link_to 'remove', remove_something)
