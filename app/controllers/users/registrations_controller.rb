@@ -13,9 +13,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super
     cart = User.where(email: params[:user][:email]).first.carts.build
-    cart.update_attribute(:status, 'active')
+    cart.update(is_active: true)
+    debugger
 
-    if cart.save
+    if cart.save!
       flash[:notice] = 'User succefully created'
     else
       flash[:alert] = 'Cant create cart'

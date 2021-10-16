@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2021_10_02_154129) do
 
   create_table "carts", force: :cascade do |t|
     t.boolean "is_active", null: false
-    t.boolean "is_order", null: false
+    t.boolean "is_order", default: false, null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
