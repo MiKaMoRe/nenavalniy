@@ -12,4 +12,4 @@
     span#carts-amount class="input" role="textbox" = carts_product[:count]
     = link_to '+', one_more_product_cart_path(current_cart, product: carts_product[:product]), class: 'btn', method: :post
     = carts_product[:product].price * carts_product[:count] 
-    / = link_to 'remove', remove_something)
+    = link_to 'remove', remove_product_cart_path(current_cart, product: carts_product[:product]), class: 'cancel-btn', method: :delete
