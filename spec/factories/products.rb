@@ -8,4 +8,8 @@ FactoryBot.define do
     price { 100 }
     amount { 200 }
   end
+
+  trait :out_of_stock do
+    amount { 0 }
+  end
 end
