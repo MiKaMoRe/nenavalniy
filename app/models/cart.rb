@@ -4,8 +4,6 @@ class Cart < ApplicationRecord
   has_many :carts_products
   has_many :products, through: :carts_products, dependent: :destroy
 
-  validates :is_active, presence: true
-
   scope :active, -> { where(is_active: true).first }
 
   def price
