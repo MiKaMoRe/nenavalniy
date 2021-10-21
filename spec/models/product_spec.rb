@@ -3,7 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  it { is_expected.to have_many(:orders).dependent(:destroy).through(:orders_products) }
+  it { is_expected.to have_many :carts_products }
+  it { is_expected.to have_many(:carts).dependent(:destroy).through(:carts_products) }
 
   it { is_expected.to validate_presence_of :article }
   it { is_expected.to validate_presence_of :name }
