@@ -13,11 +13,12 @@ feature 'User can check added to cart products', "
     given(:user) { create(:user) }
     given(:cart) { create(:cart, user: user) }
 
-    background { sign_in(user) }
+    background do
+      sign_in(user)
+      visit cart_path(cart)
+    end
 
     scenario 'add product and check his cart' do
-      visit cart_path(cart)
-
       expect(page).to_not have_content product.name
 
       visit products_path

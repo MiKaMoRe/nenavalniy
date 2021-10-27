@@ -8,6 +8,7 @@
 
 admin = User.create!(email: 'admin@didlogic.com', password: 'simplepass', password_confirmation: 'simplepass')
 cart = Cart.create!(is_active: true, is_order: true, user: admin)
+property = Property.create!(name: 'weight', value: '5кг')
 admin.carts.append
 
 products = Product.create!([
@@ -36,6 +37,8 @@ products = Product.create!([
     amount: 0
   }
 ])
+
+products.each { |product| product.properties.append property }
 
 # Add some product to admins cart
 
