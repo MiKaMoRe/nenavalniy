@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 2021_10_26_094054) do
   create_table "products_properties", id: false, force: :cascade do |t|
     t.integer "product_id", null: false
     t.integer "property_id", null: false
+    t.string "value", null: false
     t.index ["product_id", "property_id"], name: "index_products_properties_on_product_id_and_property_id"
   end
 
   create_table "properties", force: :cascade do |t|
     t.string "name", null: false
-    t.string "value", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
