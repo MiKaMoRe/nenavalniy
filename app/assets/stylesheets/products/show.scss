@@ -1,0 +1,14 @@
+@import '../shared/colors';
+
+.product{
+  .wrapper{}
+
+  &__header{
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    h2{
+      font-weight: 400;
+    }
+  }
+}

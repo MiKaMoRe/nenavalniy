@@ -6,7 +6,8 @@
       - else 
         .stockout Нет в наличии
     .product__image 
-      = image_tag('icons/drone2.svg')
+      = link_to product_path(product) do
+        = image_tag('icons/drone2.svg')
     .product__description
       h3= product.name
       h4= "#{product.price} шекелей"

@@ -1,0 +1,8 @@
+.product.parrent
+  .wrapper
+    .product__header
+      h2
+        => @product.description
+        => @product.name
+        - @product.products_properties.each do |products_property|
+          = products_property.value
