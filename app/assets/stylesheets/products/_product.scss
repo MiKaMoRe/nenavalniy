@@ -40,24 +40,24 @@
       height: 30px;
     }
   }
-}
 
-.instock{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: $successfulGreen;
-  border: 2px solid $successfulGreen;
-  width: 100px;
-  height: 30px;
-}
+  &__available{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $successfulGreen;
+    border: 2px solid $successfulGreen;
+    width: 100px;
+    height: 30px;
+  }
 
-.stockout{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: $failureRed;
-  border: 2px solid $failureRed;
-  width: 130px;
-  height: 30px;
+  &__out_of_stock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $failureRed;
+    border: 2px solid $failureRed;
+    width: 130px;
+    height: 30px;
+  }
 }

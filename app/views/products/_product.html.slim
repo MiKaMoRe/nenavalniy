@@ -2,9 +2,9 @@
   .product__wrapper 
     .product__top 
       - if product.amount > 0
-        .instock В наличии
+        .product__available В наличии
       - else 
-        .stockout Нет в наличии
+        .product__out_of_stock Нет в наличии
     .product__image 
       = link_to product_path(product) do
         = image_tag('icons/drone2.svg')
