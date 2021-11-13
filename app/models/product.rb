@@ -5,4 +5,8 @@ class Product < ApplicationRecord
   has_many :properties, through: :products_properties, dependent: :destroy
 
   validates :article, :name, :price, :amount, presence: true
+
+  def available?
+    amount != 0
+  end
 end
