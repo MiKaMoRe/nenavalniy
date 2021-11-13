@@ -12,4 +12,18 @@ RSpec.describe Product, type: :model do
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_presence_of :price }
   it { is_expected.to validate_presence_of :amount }
+
+  describe '#available?' do
+    let(:product) { create(:product) }
+
+    context 'when product is available' do
+      it { expect(product.available?).to be_truthy }
+    end
+
+    context 'when product out of stock' do
+      before { product.update(amount: 0) }
+
+      it { expect(product.available?).to be_falsey }
+    end
+  end
 end
