@@ -1,3 +1,1 @@
-$(document).on('turbolinks:load', () => {
-  console.log('22')
-})
+$(document).on('turbolinks:load', () => {})
