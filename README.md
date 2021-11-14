@@ -27,3 +27,8 @@ Things you may want to cover:
 Models:
 
 * Product
+* Cart
+* carts_product
+* User
+* Property
+* products_property
