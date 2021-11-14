@@ -14,4 +14,7 @@
       p= "В наличии: #{product.amount}"
     .product__buybutton
       - if product.amount > 0
-        = link_to 'В корзину', add_to_cart_product_path(product, cart: current_cart), method: :post
+        - if current_user
+          = link_to 'В корзину', add_to_cart_product_path(product, cart: current_cart), method: :post
+        - else 
+          = link_to 'В корзину',new_user_session_path

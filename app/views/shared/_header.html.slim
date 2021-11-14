@@ -31,4 +31,7 @@ header.parent
         input
         = link_to image_tag('icons/search'), '#', class: 'icons'
         = link_to image_tag('icons/favorite'), '#', class: 'icons' 
-        = link_to image_tag('icons/cart'), cart_path(current_cart), class: 'icons' 
+        - if current_user
+          = link_to image_tag('icons/cart'), cart_path(current_cart), class: 'icons' 
+        - else
+          = link_to image_tag('icons/cart'), new_user_session_path, class: 'icons' 
