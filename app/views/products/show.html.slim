@@ -48,7 +48,10 @@
         .product-show__to_cart 
           .product-show__buybutton 
             - if @product.available?
-              = link_to 'В корзину', add_to_cart_product_path(@product, cart: current_cart), method: :post
+              - if current_user
+                = link_to 'В корзину', add_to_cart_product_path(@product, cart: current_cart), method: :post
+              - else
+                = link_to 'В корзину', new_user_session_path
           .product-show__to_favorite
             = link_to 'В избранное', '#'
         .product-show__counter        
