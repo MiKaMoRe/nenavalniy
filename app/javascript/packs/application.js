@@ -8,7 +8,9 @@ import Turbolinks from "turbolinks"
 import $ from '@rails/ujs'
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import 'magnific-popup'
 import './utilities/turbolinks_load.js'
+import 'magnific-popup/dist/magnific-popup.css'
 
 global.$ = $
 global.jQuery = $
