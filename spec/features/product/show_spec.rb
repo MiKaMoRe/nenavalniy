@@ -23,7 +23,7 @@ feature 'User can open products page', "
       visit product_path(product)
 
       expect(page).to have_content product.properties.first.name
-      expect(page).to have_content product.properties.first.value
+      expect(page).to have_content product.products_properties.first.value
     end
   end
 end
