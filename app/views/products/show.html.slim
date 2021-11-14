@@ -1,8 +1,55 @@
-.product.parrent
+.product-show.parent
   .wrapper
-    .product__header
+    .product-show__header
       h2
         => @product.description
         => @product.name
         - @product.products_properties.each do |products_property|
           = products_property.value
+    .product-show__body
+      .product-show__card
+        = image_tag('icons/drone2.svg')
+        .product-show__info
+          div
+            h3.product__article 
+              => "Артикул:"
+              = @product.article
+            ul 
+              - @product.products_properties.each do |products_property|
+                li
+                  => products_property.property.name
+                  = products_property.value
+          .product-show__guarantees
+            div 
+              = image_tag('icons/logo')
+              p Авторизированный магазин
+            div 
+              = image_tag('icons/wallet')
+              p Гарантия лучшей цены
+            div 
+              = image_tag('icons/garant')
+              p Официальная гарантия 1 год
+            div 
+              = image_tag('icons/delivery')
+              p Бесплатная доставка за 3 часа
+      .product-show__buttons 
+        .product-show__price 
+          h2
+            => @product.price
+            = 'шекелей'
+          .product-show__amount 
+            - if @product.available?
+              .product-show__amount-available
+                => 'В наличии'
+                = @product.amount
+            - else 
+              .product-show__amount-out_of_stock
+                = 'Нет в наличии'
+        .product-show__to_cart 
+          .product-show__buybutton 
+            - if @product.available?
+              = link_to 'В корзину', add_to_cart_product_path(@product, cart: current_cart), method: :post
+          .product-show__to_favorite
+            = link_to 'В избранное', '#'
+        .product-show__counter        
+        
