@@ -1,3 +1,6 @@
+- unless current_user
+  = render 'users/registrations/new'
+  = render 'users/sessions/new'
 header.parent
   .top
     .wrapper 
@@ -14,9 +17,9 @@ header.parent
           b = current_user.email
           = link_to 'Log out', destroy_user_session_path, method: :delete
         - else
-          = link_to 'Login', new_user_session_path
+          = link_to 'Login', '#popup-login', class: 'popup-login'
           p |
-          = link_to 'Registration', new_user_registration_path
+          = link_to 'Registration', '#popup-registration', class: 'popup-login'
   .bottom
     .wrapper
       .links

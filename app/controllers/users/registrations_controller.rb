@@ -14,7 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
     cart = User.where(email: params[:user][:email]).first.carts.build
     cart.update(is_active: true)
-    debugger
 
     if cart.save!
       flash[:notice] = 'User succefully created'

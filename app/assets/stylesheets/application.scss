@@ -24,6 +24,48 @@
   color: $failureRed;
 }
 
+.popup{
+  background-color: #fff;
+  min-width: 500px;
+  width: 0;
+  padding: 20px;
+  margin: 0 auto;
+  position: relative;
+
+  .field{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+
+  h1{
+    text-transform: uppercase;
+    padding: 10px 0 30px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $thirdColor;
+  }
+
+  label{
+    padding-bottom: 10px;
+  }
+
+  input{
+    background-color: $mainColor;
+    border: 1px solid $thirdColor;
+    padding: 10px 5px;
+    font-size: 20px;
+
+    &[type=submit]{
+      background-color: $secondaryColor;
+      color: #fff;
+    }
+  }
+
+  .actions{
+    margin: 0 auto;
+  }
+}
+
 *{
   outline: none;
   margin: 0;
