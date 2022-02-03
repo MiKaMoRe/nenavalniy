@@ -1,0 +1,76 @@
+@import '../shared/colors';
+
+.products{
+  .wrapper{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 300px 3fr;
+    grid-template-rows: minmax(200px, auto) 40px;
+    grid-template-areas: 
+      'nav fil fil fil' 
+      'nav sor sor sor'
+      'nav lis lis lis';
+  }
+  
+  &__vertical-nav{
+    grid-area: nav;
+  }
+
+  &__filter{
+    grid-area: fil;
+    border: 1px solid $thirdColor;
+    background-color: $mainColor;
+  }
+
+  &__sorting{
+    grid-area: sor;
+    border: 1px solid $thirdColor;
+    background-color: $mainColor;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    
+    a{
+      color: $thirdColor;
+    }
+
+    > *:not(:last-child){
+      padding-right: 20px;
+    }
+  }
+
+  &__list{
+    grid-area: lis;
+
+    &_grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+  }
+}
+
+.vertical-nav{
+  &__wrapper{
+    background-color: $mainColor;
+    border-left: 1px solid $thirdColor;
+    border-right: 1px solid $thirdColor;
+
+    > div{
+      height: 50px;
+    }
+  }
+
+  &__elem{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-bottom: 1px solid $thirdColor;
+
+    &_title{
+      background-color: $thirdColor;
+    }
+  }
+}

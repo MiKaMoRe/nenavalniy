@@ -11,6 +11,9 @@
 /db/*.sqlite3
 /db/*.sqlite3-*
 
+# Bash scripts
+/bash_scripts
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -35,6 +38,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+/confige/database.yml
 /public/packs
 /public/packs-test
 /node_modules

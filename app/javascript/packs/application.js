@@ -5,8 +5,18 @@
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
+import $ from '@rails/ujs'
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import 'magnific-popup'
+import './utilities/turbolinks_load.js'
+import 'magnific-popup/dist/magnific-popup.css'
+
+global.$ = $
+global.jQuery = $
+
+require.context('file-loader?name=[path][name].[ext]&context=node_modules/jquery-ui-dist!jquery-ui-dist', true,    /jquery-ui\.css/ )
+require.context('file-loader?name=[path][name].[ext]&context=node_modules/jquery-ui-dist!jquery-ui-dist', true,    /jquery-ui\.theme\.css/ )
 
 Rails.start()
 Turbolinks.start()

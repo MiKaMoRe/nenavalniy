@@ -1,0 +1,125 @@
+@import '../shared/colors';
+
+.product-show{
+  .wrapper{
+    flex-direction: column;
+  }
+
+  &__header{
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    h2{
+      font-weight: 400;
+    }
+  }
+
+  &__body{
+    display: grid;
+    gap: 80px;
+    grid-template-columns: 3fr 1fr;
+  }
+
+  &__card{
+    display: flex;
+    background-color: $mainColor;
+    border: 1px solid $thirdColor;
+    padding: 20px;
+    margin-bottom: 50px;
+    height: 100%;
+    
+    h3 {
+      font-size: 26px;
+    }
+
+    > img{
+      background-color: grey;
+      width: 40%;
+      margin-right: 40px;
+    }
+  }
+
+  &__article{
+    padding-bottom: 20px;
+  }
+
+  &__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    li {
+      margin-left: 60px;
+      list-style: disc;
+      font-size: 20px;
+    }
+  }
+
+  &__guarantees{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid $thirdColor;
+    padding-top: 30px;
+    gap: 20px;
+
+    > div{
+      display: flex;
+      font-size: 18px;
+
+      img{
+        width: 60px;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  &__buybutton{
+    padding-top: 50px;
+
+    a{
+      padding: 20px 0;
+      cursor: pointer;
+      font-size: 22px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $noticeColor;
+      border: 2px solid $noticeColor;
+      height: 30px;
+    }
+  }
+
+  &__to_favorite{
+    padding-top: 20px;
+
+    a{
+      padding: 20px 0;
+      cursor: pointer;
+      font-size: 22px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $thirdColor;
+      border: 2px solid $thirdColor;
+      height: 30px;
+    }
+  }
+
+  &__price{
+    h2{
+      font-weight: normal;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__amount{
+    &-available{
+      color: $successfulGreen;
+    }
+    &-out_of_stock{
+      color: $failureRed;
+    }
+  }
+}
