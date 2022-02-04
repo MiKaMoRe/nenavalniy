@@ -1,6 +1,7 @@
-.mfp-hide.popup#popup-login
+.mfp-hide.popup.session-new#popup-login
   h1 Авторизация
-  = form_for(resource, as: resource_name, url: session_path(resource_name), remote: false, format: :js, html: { id: :new_user_signin }) do |f|
+  ul.login-errors.session-new__error-messages
+  = form_for(resource, as: resource_name, url: session_path(resource_name), remote: true, format: :js, html: { id: :new_user_signin }) do |f|
     .field
       = f.label :email_signin
       = f.email_field :email, autofocus: true, autocomplete: "email", id: :email_signin

@@ -5,7 +5,7 @@
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
-import $ from '@rails/ujs'
+import $ from 'jquery'
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'magnific-popup'
@@ -14,6 +14,8 @@ import 'magnific-popup/dist/magnific-popup.css'
 
 global.$ = $
 global.jQuery = $
+
+$ = jQuery
 
 require.context('file-loader?name=[path][name].[ext]&context=node_modules/jquery-ui-dist!jquery-ui-dist', true,    /jquery-ui\.css/ )
 require.context('file-loader?name=[path][name].[ext]&context=node_modules/jquery-ui-dist!jquery-ui-dist', true,    /jquery-ui\.theme\.css/ )

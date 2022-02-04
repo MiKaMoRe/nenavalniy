@@ -25,7 +25,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def failure
-    return render json: { success: false, errors: flash.alert }
+    @messages = ['Email or password is incorrect']
   end
 
   private
