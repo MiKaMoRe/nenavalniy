@@ -6,7 +6,7 @@ class Cart < ApplicationRecord
 
   scope :active, -> { where(is_active: true).first }
 
-  def price
-    
+  def total
+    products.map { |product| product.price }.inject(0, :+)
   end
 end
