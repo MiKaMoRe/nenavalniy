@@ -11,15 +11,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
-    cart = User.where(email: params[:user][:email]).first.carts.build
-    cart.update(is_active: true)
+    @user = User.new(user_params)
 
-    if cart.save!
-      flash[:notice] = 'User succefully created'
+    if @user.save
+      cart = @user.carts.build
+      cart.update(is_active: true)
+
+      if cart.save
+        flash[:notice] = 'User succefully created'
+      else
+        flash[:alert] = 'Cant create cart'
+      end
+
+      sign_in(@user)
+
+      redirect_to request.referer
     else
-      flash[:alert] = 'Cant create cart'
-    end 
+      @messages = @user.errors.full_messages
+      render :failure
+    end
   end
 
   # GET /resource/edit
@@ -67,4 +77,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+  
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
 end

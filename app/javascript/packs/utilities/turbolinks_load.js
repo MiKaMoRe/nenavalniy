@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', () => {
     closeOnBgClick: false,
 
     gallery: {
-      enabled: true,
+      enabled: false,
     },
 
     callbacks: {

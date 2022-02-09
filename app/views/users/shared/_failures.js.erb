@@ -1,5 +1,5 @@
 $('.<%= class_name %>').html('<%= render 'users/shared/error_list', messages: @messages %>')
 
 setTimeout( f => {
-  $('.login-errors').html('')
+  $('.<%= class_name %>').html('')
 }, 10000)
