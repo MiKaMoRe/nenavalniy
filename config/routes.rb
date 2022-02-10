@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       post :one_more_product
       delete :one_less_product
       delete :remove_product
+      patch :order
     end
   end
 end

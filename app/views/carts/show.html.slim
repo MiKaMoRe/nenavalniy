@@ -5,3 +5,4 @@
       = render partial: 'carts/carts_product', collection: @carts_products
     .cart__confirm
       = @cart.total
+      = link_to 'Заказать', order_cart_path(@cart), method: :patch
