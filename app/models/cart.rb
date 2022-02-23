@@ -4,9 +4,13 @@ class Cart < ApplicationRecord
   has_many :carts_products
   has_many :products, through: :carts_products, dependent: :destroy
 
-  scope :active, -> { where(is_active: true).first }
+  scope :active, -> { where(is_order: false).first }
 
   def total
     products.map { |product| product.price }.inject(0, :+)
+  end
+
+  def empty?
+    products.empty?
   end
 end

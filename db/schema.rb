@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2021_10_26_094054) do
 
   create_table "carts", force: :cascade do |t|
-    t.boolean "is_active", null: false
     t.boolean "is_order", default: false, null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -57,6 +56,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_094054) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "type", default: "User", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

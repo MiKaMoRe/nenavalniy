@@ -15,7 +15,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     if @user.save
       cart = @user.carts.build
-      cart.update(is_active: true)
 
       if cart.save
         flash[:notice] = 'User succefully created'

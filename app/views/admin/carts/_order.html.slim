@@ -1,0 +1,11 @@
+.carts__order.order
+  .order__info
+    p= "Заказ ##{order.id}"
+    p= "Заказчик: #{order.user.email}"
+  .order__contain
+    p Состав:
+    br
+    - order.products.each do |product|
+      = "#{product.name}, " 
+  .order__actions 
+    = link_to 'Выполнен', admin_cart_path(order), method: :delete

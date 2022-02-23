@@ -20,4 +20,8 @@ Rails.application.routes.draw do
       patch :order
     end
   end
+
+  namespace :admin do
+    resources :carts, only: %i[index destroy]
+  end
 end

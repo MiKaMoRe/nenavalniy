@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :one_more_product, :one_less_product, :remove_product]
-  before_action :find_cart, only: [:show, :one_more_product, :one_less_product, :remove_product, :order]
+  before_action :find_cart, only: [:show, :one_more_product, :one_less_product, :remove_product, :order, :destroy]
 
   def show
     @carts_products = @cart.products.uniq.map do |product|
@@ -30,21 +30,24 @@ class CartsController < ApplicationController
   end
 
   def order
-    @cart.update(is_active: false, is_order: true)
-
-    if @cart.save
-      flash[:notice] = 'Order successfully created'
+    if @cart.empty?
+      flash[:alert] = 'Ваша корзина пуста'
     else
-      flash[:alert] = 'Order canceled'
-    end
+      @cart.update(is_order: true)
 
-    @cart = current_user.carts.build
-    @cart.update(is_active: true)
+      if @cart.save
+        flash[:notice] = 'Order successfully created'
 
-    if @cart.save
-      flash[:notice] = 'New cart successfully craeated'
-    else
-      flash[:alert] = 'Cant create cart'
+        @cart = current_user.carts.build
+    
+        if @cart.save
+          flash[:notice] = 'New cart successfully craeated'
+        else
+          flash[:alert] = 'Cant create cart'
+        end
+      else
+        flash[:alert] = 'Order canceled'
+      end
     end
 
     redirect_to @cart

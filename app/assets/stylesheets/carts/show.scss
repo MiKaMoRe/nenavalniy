@@ -1,6 +1,6 @@
 @import 'shared/colors';
 
-.cart{
+.cart-show{
   &__wrapper{
     flex-direction: column;
     padding-top: 30px;
@@ -52,4 +52,9 @@
       }
     }
   }
+}
+
+.order{
+  display: flex;
+  justify-content: space-between;
 }

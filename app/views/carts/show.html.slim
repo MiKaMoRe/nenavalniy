@@ -1,8 +1,8 @@
-.cart.parent
-  .cart__wrapper.wrapper
+.cart-show.parent
+  .cart-show__wrapper.wrapper
     h1 Корзина
-    .cart__products 
+    .cart-show__products 
       = render partial: 'carts/carts_product', collection: @carts_products
-    .cart__confirm
+    .cart-show__confirm
       = @cart.total
       = link_to 'Заказать', order_cart_path(@cart), method: :patch

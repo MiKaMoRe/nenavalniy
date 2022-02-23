@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-admin = User.create!(email: 'admin@didlogic.com', password: 'simplepass', password_confirmation: 'simplepass')
-cart = Cart.create!(is_active: true, is_order: true, user: admin)
+admin = User.create!(email: 'admin@didlogic.com', password: 'simplepass', password_confirmation: 'simplepass', type: 'Admin')
+cart = Cart.create!(is_order: false, user: admin)
 property = Property.create!(name: 'weight')
 admin.carts.append
 

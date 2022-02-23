@@ -1,0 +1,4 @@
+.carts.parent
+  .carts__wrapper.wrapper
+    - @carts.each do |cart|
+      = render 'admin/carts/order', order: cart

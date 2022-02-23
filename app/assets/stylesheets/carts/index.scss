@@ -1,0 +1,14 @@
+@import 'shared/colors';
+
+.carts{
+  &__wrapper{
+    flex-direction: column;
+    padding-top: 30px;
+  }
+
+  &__order{
+    padding: 20px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+  }
+}
