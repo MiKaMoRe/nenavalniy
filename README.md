@@ -23,3 +23,12 @@ Things you may want to cover:
 
 * ...
 # nenavalniy
+
+Models:
+
+* Product
+* Cart
+* carts_product
+* User
+* Property
+* products_property

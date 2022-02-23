@@ -1,0 +1,40 @@
+- unless current_user
+  = render 'users/registrations/new'
+  = render 'users/sessions/new'
+header.parent
+  .top
+    .wrapper 
+      .navigation
+        = link_to 'О магазине'
+        = link_to 'Доставка'
+        = link_to 'Оплата'
+        = link_to 'Отзывы'
+        = link_to 'Контакты'
+        = link_to 'Возврат'
+      div
+        - if user_signed_in?
+          p Welcome, 
+          b = current_user.email
+          = link_to 'Log out', destroy_user_session_path, method: :delete
+        - else
+          = link_to 'Login', '#popup-login', class: 'popup-login'
+          p |
+          = link_to 'Registration', '#popup-registration', class: 'popup-login'
+  .bottom
+    .wrapper
+      .links
+        = link_to image_tag('icons/logo'), root_path
+        = link_to 'Продукция', products_path
+        = link_to 'По тематике'
+        = link_to 'Скидки'
+      .taskbar
+        div
+          p 8 800 555 35 35
+          a href="#" Заказать звонок
+        input
+        = link_to image_tag('icons/search'), '#', class: 'icons'
+        = link_to image_tag('icons/favorite'), '#', class: 'icons' 
+        - if current_user
+          = link_to image_tag('icons/cart'), cart_path(current_cart), class: 'icons' 
+        - else
+          = link_to image_tag('icons/cart'), new_user_session_path, class: 'icons' 

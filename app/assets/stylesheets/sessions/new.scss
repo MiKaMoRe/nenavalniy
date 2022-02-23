@@ -1,0 +1,8 @@
+@import '../shared/colors';
+
+.session-new{
+  &__error-messages{
+    color: $failureRed;
+    padding: 20px 0;
+  }
+}

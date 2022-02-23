@@ -1,0 +1,17 @@
+.mfp-hide.popup.session-new#popup-login
+  h1 Авторизация
+  ul.login-errors.session-new__error-messages
+  = form_for(resource, as: resource_name, url: session_path(resource_name), remote: true, format: :js, html: { id: :new_user_signin }) do |f|
+    .field
+      = f.label :email_signin
+      = f.email_field :email, autofocus: true, autocomplete: "email", id: :email_signin
+    .field
+      = f.label :password_signin
+      = f.password_field :password, autocomplete: "current-password", id: :password_signin
+    - if devise_mapping.rememberable?
+      .field
+        = f.check_box :remember_me
+        = f.label :remember_me
+    .actions
+      = f.submit "Log in"
+  = render "users/shared/links"
