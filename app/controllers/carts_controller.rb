@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :one_more_product, :one_less_product, :remove_product]
   before_action :find_cart, only: [:show, :one_more_product, :one_less_product, :remove_product, :order, :destroy]
+  before_action :active_cart_owner?, only: [:show]
 
   def show
     @carts_products = @cart.products.uniq.map do |product|
@@ -55,7 +56,11 @@ class CartsController < ApplicationController
 
   private
 
+  def active_cart_owner?
+    redirect_to @cart unless params[:id].to_i == @cart.id
+  end
+
   def find_cart
-    @cart = Cart.find(params[:id])
+    @cart = current_user.active_cart
   end
 end

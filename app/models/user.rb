@@ -9,4 +9,8 @@ class User < ApplicationRecord
   def add_product(product)
     current_cart.products.append(product)
   end
+
+  def active_cart
+    carts.active.first
+  end
 end
