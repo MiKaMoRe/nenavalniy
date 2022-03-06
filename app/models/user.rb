@@ -11,6 +11,6 @@ class User < ApplicationRecord
   end
 
   def active_cart
-    carts.active.first
+    carts.active
   end
 end

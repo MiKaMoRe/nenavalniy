@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   def show; end
 
   def add_to_cart
-    @cart.carts_products.append @product
+    @cart.carts_products.build.update(product: @product)
   end
 
   private
