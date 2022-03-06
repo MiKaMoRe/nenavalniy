@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', () => {
     signUn: 1
   }
 
-  $('.popup-login').magnificPopup({
+  $('.popup-open').magnificPopup({
     closeOnBgClick: false,
 
     gallery: {

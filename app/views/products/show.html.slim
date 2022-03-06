@@ -51,7 +51,7 @@
               - if current_user
                 = link_to 'В корзину', add_to_cart_product_path(@product, cart: current_cart), method: :post
               - else
-                = link_to 'В корзину', new_user_session_path
+                = link_to 'В корзину', add_to_cart_product_path(@product, cart: 0), remote: true, format: :js, method: :post
           .product-show__to_favorite
             = link_to 'В избранное', '#'
         .product-show__counter        
