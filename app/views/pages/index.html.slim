@@ -1,0 +1,64 @@
+.home.parent
+  .wrapper
+    .slider
+      .swiper 
+        .swiper-wrapper
+          .swiper-slide
+            .slider__shadow
+          .swiper-slide
+            .slider__shadow
+          .swiper-slide
+            .slider__shadow
+        .swiper-pagination
+        .swiper-button-prev
+        .swiper-button-next
+        .swiper-scrollbar
+    .benefits
+      .benefits__wrapper
+        .benefits__cell
+          .benefits__elem
+            = image_tag('icons/logo')
+            p Авторизированный магазин
+        .benefits__cell
+          .benefits__elem
+            = image_tag('icons/garant.svg')
+            p Официальная гарантия 1 год
+        .benefits__cell
+          .benefits__elem
+            = image_tag('icons/wallet.svg')
+            p Гарантия лучшей цены
+        .benefits__cell
+          .benefits__elem
+            = image_tag('icons/delivery.svg')
+            p Бесплатная доставка за 3 часа
+    .sales-leaders
+      .sales-leaders__wrapper
+        .sales-leaders__title
+          h1 Лидеры продаж
+        .sales-leaders__body 
+          .sales-leaders__elem.sales-leader
+            .sales-leader__image
+              = image_tag('icons/drone1.svg')
+            .sales-leader__body
+              - leader = @leaders[0]
+              h3= leader.name
+              h2= leader.description
+              p= "#{leader.price} р."
+          .sales-leaders__elem.sales-leader
+            .sales-leader__image
+              = image_tag('icons/drone2.svg')
+            .sales-leader__body
+              - leader = @leaders[1]
+              h3= leader.name
+              h2= leader.description
+              p= "#{leader.price} р."
+          .sales-leaders__elem.sales-leader
+            .sales-leader__image
+              = image_tag('icons/drone3.svg')
+            .sales-leader__body
+              - leader = @leaders[2]
+              h3= leader.name
+              h2= leader.description
+              p= "#{leader.price} р."
+            
+            

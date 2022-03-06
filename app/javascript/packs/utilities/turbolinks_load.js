@@ -1,4 +1,8 @@
+import MainPage from '../entities/main_page'
+
 $(document).on('turbolinks:load', () => {
+  new MainPage()
+
   const popup = {
     signIp: 0,
     signUn: 1

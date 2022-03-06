@@ -1,3 +1,5 @@
 class PagesController < ApplicationController
-  def index; end
+  def index
+    @leaders ||= Product.limit(3)
+  end
 end
