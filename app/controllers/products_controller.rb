@@ -10,7 +10,14 @@ class ProductsController < ApplicationController
   def show; end
 
   def add_to_cart
-    @cart.carts_products.build.update(product: @product)
+    if @product.available?
+      @product.reduce
+      @cart.carts_products.build.update(product: @product)
+
+      respond_to do |f|
+        f.js {}
+      end
+    end
   end
 
   private

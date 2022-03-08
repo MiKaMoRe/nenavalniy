@@ -1,0 +1,10 @@
+$('.product[rel="<%= @product.id %>"] #amount').map((i, product) => {
+  const currentVal = product.value
+
+  if (currentVal == 1){
+    $('.product[rel="<%= @product.id %>"] .product__buybutton').remove()
+    $('.product[rel="<%= @product.id %>"] .product__available').replaceWith('<div class="product__out_of_stock">Нет в наличии</div>')
+  }
+
+  product.value = currentVal - 1
+})

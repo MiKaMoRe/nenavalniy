@@ -1,4 +1,4 @@
-.product
+.product rel=product.id
   .product__wrapper 
     .product__top 
       - if product.amount > 0
@@ -11,10 +11,13 @@
     .product__description
       h3= product.name
       h4= "#{product.price} шекелей"
-      p= "В наличии: #{product.amount}"
+      .product__amount
+        p= "В наличии: " 
+        input#amount value=product.amount disabled=""
+        
     .product__buybutton
       - if product.amount > 0
         - if current_user
-          = link_to 'В корзину', add_to_cart_product_path(product, cart: current_cart), method: :post
+          = link_to 'В корзину', add_to_cart_product_path(product, cart: current_cart), remote: true, format: :js, method: :post
         - else 
           = link_to 'В корзину', add_to_cart_product_path(product, cart: 0), remote: true, format: :js, method: :post

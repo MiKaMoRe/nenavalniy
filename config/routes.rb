@@ -14,8 +14,8 @@ Rails.application.routes.draw do
 
   resources :carts, only: %i[show] do
     member do
-      post :one_more_product
-      delete :one_less_product
+      post :increase_product
+      delete :reduce_product
       delete :remove_product
       patch :order
     end

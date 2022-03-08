@@ -1,33 +1,40 @@
 class CartsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :one_more_product, :one_less_product, :remove_product]
-  before_action :find_cart, only: [:show, :one_more_product, :one_less_product, :remove_product, :order, :destroy]
+  before_action :authenticate_user!, only: [:show, :increase_product, :reduce_product, :remove_product, :order]
+  before_action :find_cart, only: [:show, :increase_product, :reduce_product, :remove_product, :order]
+  before_action :find_product, only: [:increase_product, :reduce_product, :remove_product]
+  before_action :find_carts_products, only: [:show, :increase_product, :reduce_product, :remove_product]
   before_action :active_cart_owner?, only: [:show]
 
-  def show
-    @carts_products = @cart.products.uniq.map do |product|
-      {
-        product: product,
-        count: @cart.products.where(id: product.id).count
-      }
+  def show; end
+
+  def increase_product
+    if @product.available?
+      @cart.carts_products.where(product: params[:product]).create!
+      @product.reduce
+
+      respond_to do |f|
+        f.js {}
+      end
     end
   end
 
-  def one_more_product
-    @cart.carts_products.where(product: params[:product]).create!
-
-    redirect_to @cart
-  end
-
-  def one_less_product
+  def reduce_product
     @cart.carts_products.where(product: params[:product]).first.destroy
+    @product.increase
 
-    redirect_to @cart
+    respond_to do |f|
+      f.js {}
+    end
   end
 
   def remove_product
-    @cart.carts_products.where(product: params[:product]).destroy_all
+    carts_products = @cart.carts_products.where(product: params[:product])
+    @product.increase(carts_products.count)
+    carts_products.destroy_all
 
-    redirect_to @cart
+    respond_to do |f|
+      f.js {}
+    end
   end
 
   def order
@@ -62,5 +69,13 @@ class CartsController < ApplicationController
 
   def find_cart
     @cart = current_user.active_cart
+  end
+
+  def find_carts_products
+    @carts_products = @cart.carts_products
+  end
+
+  def find_product
+    @product = Product.find(params[:product])
   end
 end

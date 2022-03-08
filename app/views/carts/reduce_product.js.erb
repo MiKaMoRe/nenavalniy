@@ -1,0 +1,3 @@
+<% amount = @carts_products.where(product_id: @product.id).count %>
+$('.product[rel="<%= @product.id %>"] #amount').html('<%= amount %>')
+$('.product[rel="<%= @product.id %>"] #full-price').html('<%= amount * @product.price %>')

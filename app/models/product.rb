@@ -9,4 +9,12 @@ class Product < ApplicationRecord
   def available?
     amount != 0
   end
+
+  def increase(times = 1)
+    update(amount: amount + times)
+  end
+
+  def reduce(times = 1)
+    update(amount: amount - times)
+  end
 end

@@ -2,7 +2,7 @@
   .cart-show__wrapper.wrapper
     h1 Корзина
     .cart-show__products 
-      = render partial: 'carts/carts_product', collection: @carts_products
+      = render partial: 'carts/carts_product', collection: @carts_products.group(:product_id).count
     .cart-show__confirm
       = @cart.total
       = link_to 'Заказать', order_cart_path(@cart), method: :patch

@@ -49,7 +49,7 @@
           .product-show__buybutton 
             - if @product.available?
               - if current_user
-                = link_to 'В корзину', add_to_cart_product_path(@product, cart: current_cart), method: :post
+                = link_to 'В корзину', add_to_cart_product_path(@product, cart: current_cart), remote: true, format: :js, method: :post
               - else
                 = link_to 'В корзину', add_to_cart_product_path(@product, cart: 0), remote: true, format: :js, method: :post
           .product-show__to_favorite
