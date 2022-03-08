@@ -37,4 +37,4 @@ header.parent
         - if current_user
           = link_to image_tag('icons/cart'), cart_path(current_cart), class: 'icons' 
         - else
-          = link_to image_tag('icons/cart'), new_user_session_path, class: 'icons' 
+          = link_to image_tag('icons/cart'), cart_path(current_cart), remote: true, format: :js, class: 'icons' 
