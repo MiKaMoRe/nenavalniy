@@ -8,3 +8,14 @@ $('.product[rel="<%= @product.id %>"] #amount').map((i, product) => {
 
   product.value = currentVal - 1
 })
+
+$('.product-show #amount').map((i, product) => {
+  const currentVal = product.value
+
+  if (currentVal == 1){
+    $('.product-show__buybutton > a').remove()
+    $('.product-show__amount').replaceWith('<div class="product-show__amount-out_of_stock">Нет в наличии</div>')
+  }
+
+  product.value = currentVal - 1
+})

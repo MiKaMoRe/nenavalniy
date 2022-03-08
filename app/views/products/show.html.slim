@@ -41,7 +41,7 @@
             - if @product.available?
               .product-show__amount-available
                 => 'В наличии'
-                = @product.amount
+                input#amount value=@product.amount disabled=""
             - else 
               .product-show__amount-out_of_stock
                 = 'Нет в наличии'
