@@ -4,6 +4,8 @@ class Product < ApplicationRecord
   has_many :carts, through: :carts_products, dependent: :destroy
   has_many :properties, through: :products_properties, dependent: :destroy
 
+  has_one_attached :image
+
   validates :article, :name, :price, :amount, presence: true
 
   def available?

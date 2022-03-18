@@ -42,7 +42,14 @@ products = Product.create!([
   }
 ])
 
-products.each { |product| product.products_properties.create!(property: property, value: '20кг') }
+products.each_with_index do |product, index|
+  product.image.attach(
+    io: File.open(Rails.root.join("app/assets/images/icons/drone#{index + 1}.svg")),
+    filename: "drone#{index + 1}.svg"
+  )
+
+  product.products_properties.create!(property: property, value: '20кг')
+end
 
 # Add some product to admins cart
 

@@ -23,5 +23,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :carts, only: %i[index destroy]
+    resources :products, only: [:new, :create]
   end
 end
