@@ -8,6 +8,13 @@ header{
       color: #fff;
     }
 
+
+    & .admin-nav{
+      > *{
+        padding-right: 20px;
+      }
+    }
+
     & .navigation{
       a:not(:last-child){
         padding-right: 20px;

@@ -3,7 +3,7 @@
   = render 'users/sessions/new'
 header.parent
   .top
-    .wrapper 
+    .wrapper
       .navigation
         = link_to 'О магазине'
         = link_to 'Доставка'
@@ -11,6 +11,8 @@ header.parent
         = link_to 'Отзывы'
         = link_to 'Контакты'
         = link_to 'Возврат'
+      - if current_user.is_a?(Admin)
+        = render 'admin/shared/header'
       div
         - if user_signed_in?
           p Welcome, 
