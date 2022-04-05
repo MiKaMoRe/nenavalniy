@@ -23,6 +23,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'letter_opener', '~> 1.7'
 
+# Pagination
+gem 'will_paginate', '~> 3.1.1'
+
 # Auth
 gem 'devise'
 
