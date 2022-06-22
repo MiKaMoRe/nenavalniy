@@ -14,38 +14,81 @@ admin.carts.append
 products = Product.create!([
   {
     article: 'AA-31',
-    name: 'Балдеж Полетеж',
+    name: ' ТОР-12',
     description: 'Квадрокоптер',
     price: 20000,
     amount: 10
   },
   {
     article: 'AA-240',
-    name: 'Балдеж Низкополетеж',
+    name: 'DJI Mini 2',
     description: 'Квадрокоптер',
     price: 10000,
     amount: 100
   },
   {
     article: 'YRT-124',
-    name: 'Балдежный Балдеж',
+    name: 'Autel Robotics EVO',
     description: 'Квадрокоптер',
     price: 3000,
     amount: 300
   },
   {
     article: 'GNH-1',
-    name: 'Летный Балдеж',
+    name: 'DJI Inspire 2',
+    description: 'Квадрокоптер',
+    price: 7000,
+    amount: 12
+  },
+  {
+    article: 'GNH-1',
+    name: 'DJI Inspire 2',
     description: 'Квадрокоптер',
     price: 7000,
     amount: 0
+  },
+  {
+    article: 'GNH-1',
+    name: 'DJI Inspire 2',
+    description: 'Квадрокоптер',
+    price: 7000,
+    amount: 123
+  },
+  {
+    article: 'GNH-1',
+    name: 'DJI Inspire 2',
+    description: 'Квадрокоптер',
+    price: 7000,
+    amount: 123
+  },
+  {
+    article: 'GNH-1',
+    name: 'DJI Inspire 2',
+    description: 'Квадрокоптер',
+    price: 7000,
+    amount: 432
+  },
+  {
+    article: 'GNH-1',
+    name: 'DJI Inspire 2',
+    description: 'Квадрокоптер',
+    price: 7000,
+    amount: 234
+  },
+  {
+    article: 'GNH-1',
+    name: 'DJI Mavic Air 2',
+    description: 'Квадрокоптер',
+    price: 15000,
+    amount: 154
   }
 ])
 
 products.each_with_index do |product, index|
+  image_num = Random.new.rand(1..5)
   product.image.attach(
-    io: File.open(Rails.root.join("app/assets/images/icons/drone#{index + 1}.svg")),
-    filename: "drone#{index + 1}.svg"
+    io: File.open(Rails.root.join("app/assets/images/icons/drone#{image_num}.svg")),
+    filename: "drone#{image_num}.svg"
   )
 
   product.products_properties.create!(property: property, value: '20кг')
