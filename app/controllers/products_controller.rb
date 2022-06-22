@@ -4,7 +4,8 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:add_to_cart, :show]
 
   def index
-    @products ||= Product.all
+    @current_page = (params[:page] || 1).to_i
+    @products = Product.paginate(page: @current_page, per_page: 3)
   end
   
   def show; end

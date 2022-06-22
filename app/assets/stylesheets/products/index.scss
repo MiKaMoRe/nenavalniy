@@ -50,6 +50,13 @@
       gap: 20px;
     }
   }
+
+  &__pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+  }
 }
 
 .vertical-nav{
