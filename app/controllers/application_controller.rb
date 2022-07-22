@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
       super
     else
       @messages = ["You're not authorized"]
-      render template: 'users/sessions/authenticate_failure'
+      flash[:alert] = "You're not authorized"
+
+      respond_to do |f|
+        f.js { render template: 'users/sessions/authenticate_failure' }
+        f.html { redirect_to root_path }
+      end
     end
   end
 end
